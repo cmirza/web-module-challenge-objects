@@ -13,8 +13,13 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(inputName, inputPrice, inputCategory){
+    return {
+      name: inputName,
+      price: inputPrice,
+      category: inputCategory
+    };
+
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -26,7 +31,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+console.log(createMenuItem("Taco", 3, "lunch"));
+console.log(createMenuItem("Spaghetti", 10, "dinner"));
+console.log(createMenuItem("Ice Cream", 3, "desert"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -45,10 +52,20 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  
+  discount: function(title){
+    if (title === "teacher"){
+      this.price = 13.5;
+    } else if (title === "student"){
+      this.price = 15;
+    } else if (title === "public"){
+      this.price = 16.2;
+    } else this.price = 18;
+    return burger.price;
+  }
 }
 
-
+console.log(burger.discount("teacher"));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -67,8 +84,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console
 */
 
-
-
+console.log(reviews[5].feedback);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Using the reviews array above do the following:
@@ -76,7 +92,11 @@ Using the reviews array above do the following:
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+function newObject(inputArray, inputName, inputRating, inputFeedback){
+  inputArray.push({inputName, inputRating, inputFeedback});
+  return array;
+}
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following:
@@ -84,9 +104,8 @@ Reyna's feedback is missing! Use what you know to do the following:
   2. log the reviews array to the console to check your work
 */
 
-
-
-
+reviews[7].feedback="Food and staff had one thing in common, they're both cold.";
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -98,12 +117,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(inputArray, inputIndex) {
+  return `${inputArray[inputIndex].name} gave the restaurant a ${inputArray[inputIndex].rating} star review, and their feedback was: ${inputArray[inputIndex].feedback}`;
 }
 
-
-  
+console.log(getReviewByIndex(reviews, 2));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -116,8 +134,8 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(inputArray) {
+  return `${inputArray[inputArray.length-1].name} gave the restaurant a ${inputArray[inputArray.length-1].rating} star review, and their feedback was: ${inputArray[inputArray.length-1].feedback}`;
 } 
 
 
